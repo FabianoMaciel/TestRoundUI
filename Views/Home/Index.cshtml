@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TestRound.Models.CompanyModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Companies</h1>
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(c => Model.FirstOrDefault().ISIN)</th>
+                    <th scope="col">@Html.DisplayNameFor(c => Model.FirstOrDefault().Name)</th>
+                    <th scope="col">@Html.DisplayNameFor(c => Model.FirstOrDefault().Exchange)</th>
+                    <th scope="col">@Html.DisplayNameFor(c => Model.FirstOrDefault().WebSite)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><p>@Html.DisplayFor(c => item.ISIN)</p></td>
+                        <td><p>@Html.DisplayFor(c => item.Name)</p></td>
+                        <td><p>@Html.DisplayFor(c => item.Exchange)</p></td>
+                        <td><p>@Html.DisplayFor(c => item.WebSite)</p></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
